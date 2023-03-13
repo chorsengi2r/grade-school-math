@@ -18,7 +18,7 @@ def main():
     model.to(device)
     model.train()
 
-    train_loader = DataLoader(train_dset, batch_size=4, shuffle=True) # original batch_size = 16
+    train_loader = DataLoader(train_dset, batch_size=4, shuffle=True) # original batch_size = 16, 8 still runs out of memory but 4 seems to work
     optim = AdamW(model.parameters(), lr=1e-5)
 
     num_epochs = 20

@@ -31,7 +31,9 @@ def main():
     )
 
     pbar = tqdm(range(num_training_steps))
+    print(th.cuda.memory_summary(device=None, abbreviated=False)) # Seeing memory
     for epoch in range(num_epochs):
+        print(th.cuda.memory_summary(device=None, abbreviated=False)) # Seeing memory
         for batch in train_loader:
             optim.zero_grad()
             batch = {k: v.to(device) for k, v in batch.items()}
